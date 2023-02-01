@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+input {
+  border-radius: 4px;
+  width: 400px;
+  padding: 6px;
+
+}
+.row {
+  padding: 6px;
+}
+
+.row > span {
+  width: 150px;
+  display: inline-block;
+  text-align: left;
+}
+/* 
+textarea {
+  width: 600px;
+  height:  200px;
+} */
