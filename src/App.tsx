@@ -17,10 +17,10 @@ function App() {
     setTree(StandardMerkleTree.load(treeContent as any));
   }, []);
 
-  const getMerkleProf = () => {
+  const getMerkleProof = () => {
     console.log(tree);
     try {
-      const _prof = tree?.getProof([id, addr, rewards, preRewards]);
+      const _prof = tree?.getProof([id, addr, preRewards, rewards]);
       console.log(_prof);
       if (_prof) {
         setProf(`[${_prof.join(",")}]`);
@@ -79,7 +79,7 @@ function App() {
 
         <div>-------------------------------------</div>
 
-        <button type='button' onClick={() => getMerkleProf()}>Get Merkle Prof</button>
+        <button type='button' onClick={() => getMerkleProof()}>Get Merkle Proof</button>
         <div>-------------------------------------------------------</div>
         <div>
           <textarea value={prof}></textarea>
