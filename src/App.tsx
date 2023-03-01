@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { StandardMerkleTree } from "@openzeppelin/merkle-tree";
-import fs from "fs/promises";
 import treeContent from './lp-airdrop-tree.json'
 function App() {
   const [tree, setTree] = useState<StandardMerkleTree<any>>();
   const [addr, setAddr] = useState('')
-  const [rewards, setRewards] = useState('')
-  const [preRewards, setPreRewards] = useState('')
+  const [btc, setBtc] = useState('')
+  const [eth, setEth] = useState('')
+  const [bnb, setBnb] = useState('')
+  const [cake, setCake] = useState('')
+  const [usdt, setUsdt] = useState('')
+  const [busd, setBusd] = useState('')
   const [id, setId] = useState('')
   const [prof, setProf] = useState<string>()
   useState([tree, setTree])
@@ -19,7 +22,7 @@ function App() {
 
   const getMerkleProof = () => {
     try {
-      const _prof = tree?.getProof([id, addr]);
+      const _prof = tree?.getProof([id, addr, btc, eth, bnb, cake, usdt, busd]);
       console.log(_prof);
       if (_prof) {
         setProf(`[${_prof.join(",")}]`);
@@ -39,6 +42,7 @@ function App() {
 
         <div className='row'>
           <span>Id:</span>
+
           <input
             type="text"
             value={id}
@@ -54,6 +58,68 @@ function App() {
           />
 
         </div>
+
+        <div className='row'>
+          <span>BTC:</span>
+
+          <input
+            type="text"
+            value={id}
+            onChange={(e) => setBtc(e.target.value)}
+          />
+        </div>
+
+        <div className='row'>
+          <span>ETH:</span>
+
+          <input
+            type="text"
+            value={id}
+            onChange={(e) => setEth(e.target.value)}
+          />
+        </div>
+
+        <div className='row'>
+          <span>BNB:</span>
+
+          <input
+            type="text"
+            value={id}
+            onChange={(e) => setBnb(e.target.value)}
+          />
+        </div>
+
+        <div className='row'>
+          <span>CAKE:</span>
+
+          <input
+            type="text"
+            value={id}
+            onChange={(e) => setCake(e.target.value)}
+          />
+        </div>
+
+        <div className='row'>
+          <span>USDT:</span>
+
+          <input
+            type="text"
+            value={id}
+            onChange={(e) => setUsdt(e.target.value)}
+          />
+        </div>
+
+        <div className='row'>
+          <span>BUSD:</span>
+
+          <input
+            type="text"
+            value={id}
+            onChange={(e) => setBusd(e.target.value)}
+          />
+        </div>
+
+
         <div>-------------------------------------</div>
 
         <button type='button' onClick={() => getMerkleProof()}>Get Merkle Proof</button>
