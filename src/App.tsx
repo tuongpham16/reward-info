@@ -64,7 +64,7 @@ function App() {
 
           <input
             type="text"
-            value={id}
+            value={btc}
             onChange={(e) => setBtc(e.target.value)}
           />
         </div>
@@ -74,7 +74,7 @@ function App() {
 
           <input
             type="text"
-            value={id}
+            value={eth}
             onChange={(e) => setEth(e.target.value)}
           />
         </div>
@@ -84,7 +84,7 @@ function App() {
 
           <input
             type="text"
-            value={id}
+            value={bnb}
             onChange={(e) => setBnb(e.target.value)}
           />
         </div>
@@ -94,7 +94,7 @@ function App() {
 
           <input
             type="text"
-            value={id}
+            value={cake}
             onChange={(e) => setCake(e.target.value)}
           />
         </div>
@@ -104,7 +104,7 @@ function App() {
 
           <input
             type="text"
-            value={id}
+            value={usdt}
             onChange={(e) => setUsdt(e.target.value)}
           />
         </div>
@@ -114,7 +114,7 @@ function App() {
 
           <input
             type="text"
-            value={id}
+            value={busd}
             onChange={(e) => setBusd(e.target.value)}
           />
         </div>
