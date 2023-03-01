@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { StandardMerkleTree } from "@openzeppelin/merkle-tree";
 import fs from "fs/promises";
-import treeContent from './tree.json'
+import treeContent from './lp-airdrop-tree.json'
 function App() {
   const [tree, setTree] = useState<StandardMerkleTree<any>>();
   const [addr, setAddr] = useState('')
@@ -18,9 +18,8 @@ function App() {
   }, []);
 
   const getMerkleProof = () => {
-    console.log(tree);
     try {
-      const _prof = tree?.getProof([id, addr, preRewards, rewards]);
+      const _prof = tree?.getProof([id, addr]);
       console.log(_prof);
       if (_prof) {
         setProf(`[${_prof.join(",")}]`);
@@ -37,6 +36,15 @@ function App() {
   return (
     <div className="App">
       <form>
+
+        <div className='row'>
+          <span>Id:</span>
+          <input
+            type="text"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
+          />
+        </div>
         <div className='row'>
           <span>Address: </span>
           <input
@@ -46,37 +54,6 @@ function App() {
           />
 
         </div>
-
-        <div className='row'>
-          <span>Rewards:  </span>
-          <input
-            type="text"
-            value={rewards}
-            onChange={(e) => setRewards(e.target.value)}
-          />
-
-        </div>
-
-        <div className='row'>
-          <span>Pre Rewards:</span>
-          <input
-            type="text"
-            value={preRewards}
-            onChange={(e) => setPreRewards(e.target.value)}
-          />
-
-        </div>
-
-        <div className='row'>
-          <span>Id:</span>
-
-          <input
-            type="text"
-            value={id}
-            onChange={(e) => setId(e.target.value)}
-          />
-        </div>
-
         <div>-------------------------------------</div>
 
         <button type='button' onClick={() => getMerkleProof()}>Get Merkle Proof</button>
